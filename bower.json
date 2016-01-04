@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "BitQiu <i@bitqiu.cc>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
+  }
+}
