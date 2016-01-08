@@ -1,106 +1,34 @@
-var gulp = require('gulp');
+var elixir = require('laravel-elixir');
 
-var clean = require('gulp-clean');
-var concat = require('gulp-concat');
-var jshint = require('gulp-jshint');
-var minifyCss = require('gulp-minify-css');
-var notify = require('gulp-notify');
-var rename = require('gulp-rename');
-var uglify = require('gulp-uglify');
-var less = require('gulp-less');
+//elixir.config.sourcemaps = false;
+elixir.config.assetsPath = 'src';
+elixir.config.publicPath = 'public/assets';
 
-// font-family: PingFang SC, Hiragino Sans GB, Microsoft Yahei, sans-serif;
-var paths = {
-    bower: 'bower_components/',
-    assets: 'www/assets/',
-    src: 'src/',
-    dist: 'dist/'
-};
+elixir(function(mix) {
 
-// 语法检查
-gulp.task('jshint', function () {
-    return gulp.src(paths.src+'js/*.js')
-        .pipe(jshint())
-        .pipe(jshint.reporter('default'));
-});
+    // less
+    mix.less([
+        'bootstrap.less',
+        'style.less'
+    ]);
 
-// less
-gulp.task('less',function(){
-    gulp.src(paths.src+'less/bootstrap.less')
-        .pipe(less({
-            paths: [paths.bower+'/bootstrap/less/', paths.src+'less/']
-        }))
-        .pipe(rename({
-            basename: 'bootstrap'
-        }))
-        .pipe(gulp.dest(paths.src+'css/'));
-});
+    // scripts
+    mix.scripts([
+        'index.js'
+    ],'public/assets/js/app.js');
 
-// style
-gulp.task('style',function(){
-    gulp.src(paths.src+'less/style.less')
-        .pipe(less({
-            paths: [paths.src+'less/']
-        }))
-        .pipe(rename({
-            basename: 'style'
-        }))
-        .pipe(gulp.dest(paths.src+'css/'));
-});
+    // fonts copy
+    mix.copy([
+        'bower_components/bootstrap/fonts',
+        'bower_components/font-awesome/fonts'
+    ],'public/assets/fonts');
 
-// js
-gulp.task('script', function() {
-    gulp.src(paths.src+'js/*.js')
-        .pipe(concat('script.js'))
-        .pipe(gulp.dest(paths.assets+'js/'))
-        .pipe(rename('script.min.js'))
-        .pipe(uglify())
-        .pipe(gulp.dest(paths.assets+'js/'));
-});
+    // lib copy
+    mix.copy([
+        'bower_components/jquery/dist/jquery.min.js',
+        'bower_components/bootstrap/dist/js/bootstrap.min.js',
+        'bower_components/html5shiv/dist/html5shiv.min.js',
+        'bower_components/respond/dest/respond.min.js'
+    ],'public/assets/lib');
 
-// dist
-gulp.task('copy', function () {
-    // bower
-    gulp.src([paths.bower+'bootstrap/fonts/*',paths.bower+'font-awesome/fonts/*'])
-        .pipe(gulp.dest(paths.src+'fonts/'));
-    // fonts
-    gulp.src(paths.src+'fonts/*')
-        .pipe(gulp.dest(paths.assets+'fonts/'));
-    // css
-    gulp.src(paths.src+'css/*.css')
-        .pipe(gulp.dest(paths.assets+'css/'));
-    // img
-    gulp.src(paths.src+'img/*')
-        .pipe(gulp.dest(paths.assets+'img/'));
-});
-
-// clean
-gulp.task('clean',function(){
-    gulp.src([paths.assets+'css/*', paths.assets+'js/*', paths.assets+'img/*'], {read: false})
-        .pipe(clean({force: true}));
-});
-
-// watch
-gulp.task('watch',function(){
-    gulp.watch(paths.src+'less/**.less',['less', 'style']);
-    gulp.watch(paths.src+'js/**.js',['jshint','script']);
-});
-
-// default
-gulp.task('default',['jshint', 'less', 'style', 'copy']);
-
-// build
-gulp.task('dist',function(){
-    // fonts
-    gulp.src(paths.assets+'fonts/*')
-        .pipe(gulp.dest(paths.dist+'fonts/'));
-    // css
-    gulp.src(paths.assets+'css/*.css')
-        .pipe(gulp.dest(paths.dist+'css/'));
-    // js
-    gulp.src(paths.assets+'js/*.js')
-        .pipe(gulp.dest(paths.dist+'js/'));
-    // img
-    gulp.src(paths.assets+'img/*')
-        .pipe(gulp.dest(paths.dist+'img/'));
 });
