@@ -2,14 +2,11 @@ var gulp = require('gulp');
 
 var clean = require('gulp-clean');
 var concat = require('gulp-concat');
-// var gulpIf = require('gulp-if');
 var jshint = require('gulp-jshint');
 var minifyCss = require('gulp-minify-css');
 var notify = require('gulp-notify');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
-// var useref = require('gulp-useref');
-// var watch = require('gulp-watch');
 var less = require('gulp-less');
 
 // font-family: PingFang SC, Hiragino Sans GB, Microsoft Yahei, sans-serif;
