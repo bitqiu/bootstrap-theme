@@ -1,0 +1,52 @@
+$blue: #20A0FF !default;
+$success: #13CE66 !default;
+$info: #5bc0de !default;
+$warning: #F7BA2A !default;
+$danger: #FF4949 !default;
+
+$black: #1F2D3D !default;
+$blackLight: #324057 !default;
+$blackExtraLight: #475669 !default;
+
+$silver: #8492A6 !default;
+$silverLight: #99A9BF !default;
+$silverExtraLight: #C0CCDA !default;
+
+$gray: #D3DCE6 !default;
+$grayLight: #E5E9F2 !default;
+$grayExtraLight: #EFF2F7 !default;
+
+$whiteDark: #F9FAFC !default;
+$white: #FFFFFF !default;
+
+$brand-primary:             $blue;
+$brand-success:             $success;
+$brand-info:                $info;
+$brand-warning:             $warning;
+$brand-danger:              $danger;
+
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 $brand-primary;
+$btn-primary-border:             $btn-primary-bg;
+
+$btn-secondary-color:            $black;
+$btn-secondary-bg:               #fff;
+$btn-secondary-border:           #ccc;
+
+$btn-info-color:                 #fff;
+$btn-info-bg:                    $brand-info;
+$btn-info-border:                $btn-info-bg;
+
+$btn-success-color:              #fff;
+$btn-success-bg:                 $brand-success;
+$btn-success-border:             $btn-success-bg;
+
+$btn-warning-color:              #fff;
+$btn-warning-bg:                 $brand-warning;
+$btn-warning-border:             $btn-warning-bg;
+
+$btn-danger-color:               #fff;
+$btn-danger-bg:                  $brand-danger;
+$btn-danger-border:              $btn-danger-bg;
+
+$btn-link-disabled-color:        $silverLight;
