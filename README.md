@@ -1,7 +1,7 @@
 # Bootstrap－Theme
 Bootstrap 主题
 
-DEMO : [http://bitqiu.cc/bootstrap-theme/](http://bitqiu.cc/bootstrap-theme/)
+DEMO : [https://blog.bitqiu.cc/bootstrap-theme/](https://blog.bitqiu.cc/bootstrap-theme/)
 
 ## 编译方法
 
